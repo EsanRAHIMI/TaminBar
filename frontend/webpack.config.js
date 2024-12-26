@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack'); // Add this line
 
 module.exports = {
   entry: './src/index.js',
@@ -34,8 +35,11 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
     new Dotenv({
-      path: './.env', // Path to your .env file
-      systemvars: true, // Load system environment variables as well
+      path: './.env',
+      systemvars: true,
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
   devServer: {
