@@ -41,5 +41,7 @@ module.exports = {
   devServer: {
     static: './dist',
     port: 3000,
+    host: '0.0.0.0', // Accept connections from any host
+    allowedHosts: ['taminbar.ir'], // Add your domain here
   },
 };
