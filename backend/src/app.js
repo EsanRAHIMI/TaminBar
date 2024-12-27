@@ -5,6 +5,7 @@ const app = express(); // تعریف app
 const PORT = process.env.PORT || 3001;
 const cors = require('cors'); // اضافه کردن cors
 const productsRoutes = require('./routes/products');
+const router = express.Router();
 
 // Load environment variables
 require('dotenv').config(); // فقط .env استفاده می‌شود
@@ -30,6 +31,20 @@ app.get('/backend/test-db', async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
+// Endpoint to fetch products
+router.get('/', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM products');
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'No products found' });
+    }
+    res.json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch products: ' + error.message });
+  }
+});
+module.exports = router;
 
 // Start Server
 app.listen(PORT, () => {

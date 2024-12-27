@@ -1,40 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import Error from "./components/Error";
 
 const App = () => {
   const [timestamp, setTimestamp] = useState(null);
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch test-db data
     const fetchTestDb = async () => {
       const testDbUrl = `${process.env.REACT_APP_BACKEND_URL}/test-db`;
       try {
         const res = await fetch(testDbUrl);
+        if (!res.ok) {
+          throw new Error(`Test DB Error: ${res.statusText} (${res.status})`);
+        }
         const data = await res.json();
-        console.log("Test DB Data:", data);
-        setTimestamp(data.timestamp); // ذخیره داده test-db
-      } catch (error) {
-        console.error("Error fetching test-db:", error);
+        setTimestamp(data.timestamp);
+      } catch (err) {
+        setError(err.message);
       }
     };
 
-    // Fetch products data
     const fetchProducts = async () => {
       const productsUrl = `${process.env.REACT_APP_BACKEND_URL}/products`;
       try {
         const res = await fetch(productsUrl);
+        if (!res.ok) {
+          throw new Error(`Products API Error: ${res.statusText} (${res.status})`);
+        }
         const data = await res.json();
-        console.log("Products Data:", data);
-        setProducts(data); // ذخیره داده products
-      } catch (error) {
-        console.error("Error fetching products:", error);
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
       }
     };
 
-    // Call both functions
     fetchTestDb();
     fetchProducts();
   }, []);
+
+  if (error) {
+    return <Error message={error} />;
+  }
 
   return (
     <div>
@@ -48,7 +55,7 @@ const App = () => {
       )}
 
       <h2>Products</h2>
-      {products ? (
+      {products.length > 0 ? (
         <ul>
           {products.map((product) => (
             <li key={product.id}>
@@ -57,7 +64,7 @@ const App = () => {
           ))}
         </ul>
       ) : (
-        <p>Loading products...</p>
+        <p>No products found</p>
       )}
     </div>
   );

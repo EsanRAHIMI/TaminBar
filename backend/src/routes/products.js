@@ -6,9 +6,12 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         const { rows } = await pool.query('SELECT * FROM products');
+        if (rows.length === 0) {
+            return res.status(404).json({ error: 'No products found' });
+        }
         res.json(rows);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: 'Failed to fetch products: ' + error.message });
     }
 });
 
