@@ -6,17 +6,17 @@ const PORT = process.env.PORT || 3001;
 const cors = require('cors'); // اضافه کردن cors
 const productsRoutes = require('./routes/products');
 
+// Load environment variables
+require('dotenv').config(); // فقط .env استفاده می‌شود
+
 // فعال‌سازی CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // آدرس فرانت‌اند
+  origin: process.env.CORS_ORIGIN || '*', // مقدار پویا برای محیط‌های مختلف
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // متدهای مجاز
   credentials: true, // اجازه ارسال کوکی‌ها
 }));
 
 app.use('/backend/products', productsRoutes);
-
-// Load environment variables
-require('dotenv').config(); // فقط .env استفاده می‌شود
 
 // Middleware
 app.use(express.json());
