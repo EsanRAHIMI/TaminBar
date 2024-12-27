@@ -4,24 +4,22 @@ const pool = require('./db'); // مسیر صحیح فایل db
 const app = express(); // تعریف app
 const PORT = process.env.PORT || 3001;
 const cors = require('cors'); // اضافه کردن cors
+const productsRoutes = require('./routes/products');
 
 // فعال‌سازی CORS
 app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-  methods: ['GET', 'POST'], // مشخص کردن متدهای مجاز
-  credentials: true,       // اجازه ارسال کوکی‌ها در درخواست‌ها
+  origin: 'http://localhost:3000', // آدرس فرانت‌اند
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // متدهای مجاز
+  credentials: true, // اجازه ارسال کوکی‌ها
 }));
+
+app.use('/backend/products', productsRoutes);
 
 // Load environment variables
 require('dotenv').config(); // فقط .env استفاده می‌شود
 
 // Middleware
 app.use(express.json());
-
-// Add /backend prefix to all routes
-app.use('/backend', (req, res, next) => {
-  next();
-});
 
 // Test Route with /backend prefix
 app.get('/backend/test-db', async (req, res) => {
