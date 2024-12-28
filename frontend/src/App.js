@@ -5,53 +5,55 @@ const App = () => {
   const [timestamp, setTimestamp] = useState(null);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = async () => {
+    setError(null); // ریست کردن خطا
+    setLoading(true);
+    try {
+      // درخواست به API تست دیتابیس
+      const testDbUrl = `${process.env.REACT_APP_BACKEND_URL}/test-db`;
+      const testRes = await fetch(testDbUrl);
+      if (!testRes.ok) {
+        throw new Error(`Test DB Error: ${testRes.statusText} (${testRes.status})`);
+      }
+      const testData = await testRes.json();
+      setTimestamp(testData.timestamp);
+
+      // درخواست به API محصولات
+      const productsUrl = `${process.env.REACT_APP_BACKEND_URL}/products`;
+      const productsRes = await fetch(productsUrl);
+      if (!productsRes.ok) {
+        throw new Error(`Products API Error: ${productsRes.statusText} (${productsRes.status})`);
+      }
+      const productsData = await productsRes.json();
+      setProducts(productsData);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchTestDb = async () => {
-      const testDbUrl = `${process.env.REACT_APP_BACKEND_URL}/test-db`;
-      try {
-        const res = await fetch(testDbUrl);
-        if (!res.ok) {
-          throw new Error(`Test DB Error: ${res.statusText} (${res.status})`);
-        }
-        const data = await res.json();
-        setTimestamp(data.timestamp);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    const fetchProducts = async () => {
-      const productsUrl = `${process.env.REACT_APP_BACKEND_URL}/products`;
-      try {
-        const res = await fetch(productsUrl);
-        if (!res.ok) {
-          throw new Error(`Products API Error: ${res.statusText} (${res.status})`);
-        }
-        const data = await res.json();
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    fetchTestDb();
-    fetchProducts();
+    fetchData();
   }, []);
 
-  if (error) {
-    return <Error message={error} />;
-  }
+  const closeError = () => {
+    setError(null); // بستن خطا
+  };
 
   return (
     <div>
       <h1>Hello, React!</h1>
 
+      {loading && <p>Loading...</p>}
+
       <h2>Database Timestamp</h2>
       {timestamp ? (
         <p>Timestamp: {timestamp}</p>
       ) : (
-        <p>Loading timestamp...</p>
+        !loading && <p>No timestamp available</p>
       )}
 
       <h2>Products</h2>
@@ -64,8 +66,11 @@ const App = () => {
           ))}
         </ul>
       ) : (
-        <p>No products found</p>
+        !loading && <p>No products found</p>
       )}
+
+      {/* نمایش پیام خطا در صورت وجود */}
+      {error && <Error message={error} onClose={closeError} />}
     </div>
   );
 };
