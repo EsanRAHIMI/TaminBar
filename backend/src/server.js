@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const pool = require('./db'); // مسیر صحیح فایل db
+const pool = require('./db/db'); // مسیر صحیح فایل db
 const app = express(); // تعریف app
 const PORT = process.env.PORT || 3001;
 const cors = require('cors'); // اضافه کردن cors
