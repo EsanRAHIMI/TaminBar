@@ -1,0 +1,307 @@
+
+=====================================
+Execution Time: 2025-01-12 11:02:49
+=====================================
+[0;36m=====================================[0m
+[0;32mNode.js Version:[0m v18.20.5
+[0;32mNPM Version:[0m 10.8.2
+[0;32mNVM Version:[0m NVM not found
+[0;32mTypeScript Version:[0m Version 5.6.3
+[0;32mVite Version:[0m vite/6.0.7 darwin-arm64 node-v18.20.5
+[0;32mDocker Version:[0m Docker version 27.4.0, build bde2b89
+[0;32mPostgreSQL Version:[0m
+
+[0;32mGit Version:[0m git version 2.47.1
+[0;36m-------------------------------------[0m
+[0;34mChecking Frontend Local NPM Packages:[0m
+frontend@1.0.0 /Users/ehsanrahimi/TaminBar/taminbarir/frontend
+├── @babel/core@7.26.0
+├── @babel/preset-env@7.26.0
+├── @babel/preset-react@7.26.3
+├── babel-loader@9.2.1
+├── bootstrap@5.3.3
+├── css-loader@7.1.2
+├── dotenv-webpack@8.1.0
+├── html-webpack-plugin@5.6.3
+├── react-dom@19.0.0
+├── react@19.0.0
+├── style-loader@4.0.0
+├── webpack-cli@6.0.1
+├── webpack-dev-server@5.2.0
+└── webpack@5.97.1
+
+[0;36m-------------------------------------[0m
+[0;34mChecking Backend Local NPM Packages:[0m
+backend@1.0.0 /Users/ehsanrahimi/TaminBar/taminbarir/backend
+├── cors@2.8.5
+├── dotenv@16.4.7
+├── express@4.21.2
+├── knex@3.1.0
+├── nodemon@3.1.9
+└── pg@8.13.1
+
+[0;36m-------------------------------------[0m
+[0;34mProject Directory Structure (Excluding node_modules):[0m
+.
+├── README.md
+├── backend
+│   ├── dbTest.js
+│   ├── knexfile.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── controllers
+│   │   │   └── productController.js
+│   │   ├── db
+│   │   │   ├── db.js
+│   │   │   ├── enums.js
+│   │   │   └── migrations
+│   │   │       ├── 20241228180000_create_enums.js
+│   │   │       ├── 20241228194405_create_users_table.js
+│   │   │       ├── 20241230040618_create_categories_table.js
+│   │   │       ├── 20241230040627_create_brands_table.js
+│   │   │       ├── 20241230040637_create_suppliers_table.js
+│   │   │       ├── 20241230040744_create_products_table.js
+│   │   │       ├── 20241230040756_create_orders_table.js
+│   │   │       └── 20241230040809_create_order_items_table.js
+│   │   ├── models
+│   │   │   └── productModel.js
+│   │   ├── routes
+│   │   │   ├── orders.js
+│   │   │   ├── products.js
+│   │   │   ├── suppliers.js
+│   │   │   └── users.js
+│   │   └── server.js
+│   └── test-db.js
+├── check_versions.log
+├── check_versions.sh
+└── frontend
+    ├── dist
+    │   ├── bundle.js
+    │   ├── bundle.js.LICENSE.txt
+    │   ├── favicon.ico
+    │   └── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── public
+    │   ├── favicon.ico
+    │   └── index.html
+    ├── src
+    │   ├── App.js
+    │   ├── components
+    │   │   └── Error.js
+    │   ├── index.js
+    │   └── pages
+    │       ├── Dashboard.js
+    │       ├── HomePage.js
+    │       └── ProductPage.js
+    └── webpack.config.js
+
+14 directories, 40 files
+[0;36m-------------------------------------[0m
+[0;34mDocker Containers Status:[0m
+NAMES         IMAGE             STATUS          PORTS
+TaminBar-DB   postgres:latest   Up 12 minutes   0.0.0.0:5432->5432/tcp
+SimorX_DB     postgres:latest   Up 2 hours      0.0.0.0:5434->5432/tcp
+adminer       adminer:latest    Up 11 minutes   0.0.0.0:5433->8080/tcp
+[0;36m-------------------------------------[0m
+[0;34mGit Repository Status:[0m
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   backend/package-lock.json
+	modified:   backend/package.json
+	modified:   frontend/package-lock.json
+	modified:   frontend/package.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	backend/dbTest.js
+	backend/knexfile.js
+	backend/src/db/enums.js
+	backend/src/db/migrations/
+	backend/src/routes/orders.js
+	backend/src/routes/suppliers.js
+	backend/src/routes/users.js
+	backend/test-db.js
+	check_versions.log
+	check_versions.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[0;36m-------------------------------------[0m
+[0;34mPorts in Use:[0m
+ControlCe   521 ehsanrahimi    8u  IPv4 0x45f961a27cbb0d3c      0t0    TCP *:7000 (LISTEN)
+ControlCe   521 ehsanrahimi    9u  IPv6 0xefd904af810dd367      0t0    TCP *:7000 (LISTEN)
+ControlCe   521 ehsanrahimi   10u  IPv4 0xd00121f4ea22bd6d      0t0    TCP *:5000 (LISTEN)
+ControlCe   521 ehsanrahimi   11u  IPv6 0xc2ddee6f2056085f      0t0    TCP *:5000 (LISTEN)
+rapportd    527 ehsanrahimi    8u  IPv4 0xf9b54f0d373607f2      0t0    TCP *:64753 (LISTEN)
+rapportd    527 ehsanrahimi    9u  IPv6 0xaa42bea70d1f7bdb      0t0    TCP *:64753 (LISTEN)
+mongod      635 ehsanrahimi    9u  IPv4 0xb5d1258a4be68387      0t0    TCP 127.0.0.1:27017 (LISTEN)
+mongod      635 ehsanrahimi   10u  IPv6 0xc0f7413047bdc21e      0t0    TCP [::1]:27017 (LISTEN)
+nxnode.bi   699 ehsanrahimi   15u  IPv6 0x2dc0663f2ff70c51      0t0    TCP [::1]:7002 (LISTEN)
+nxnode.bi   699 ehsanrahimi   17u  IPv4 0xaa38437392f780be      0t0    TCP 127.0.0.1:12002 (LISTEN)
+nxnode.bi   699 ehsanrahimi   18u  IPv4 0x7f35e5d24360bf92      0t0    TCP 127.0.0.1:7002 (LISTEN)
+nxrunner    740 ehsanrahimi    5u  IPv4 0x59dca0c97cdb7231      0t0    TCP 127.0.0.1:25002 (LISTEN)
+nxplayer  22203 ehsanrahimi    5u  IPv4 0xeada91e51cf5c7c2      0t0    TCP 127.0.0.1:41340 (LISTEN)
+nxplayer  22258 ehsanrahimi   12u  IPv4 0x59c6d181973b7103      0t0    TCP 127.0.0.1:13002 (LISTEN)
+com.docke 64803 ehsanrahimi   77u  IPv6 0x6b07bcdd5903672c      0t0    TCP *:5432 (LISTEN)
+com.docke 64803 ehsanrahimi  112u  IPv6 0x4ea3a6f714fbec12      0t0    TCP *:5434 (LISTEN)
+com.docke 64803 ehsanrahimi  156u  IPv6 0xa71fde0e8c3732f9      0t0    TCP *:5433 (LISTEN)
+[0;36m-------------------------------------[0m
+
+=====================================
+Execution Time: 2025-01-12 11:04:31
+=====================================
+[0;36m=====================================[0m
+[0;32mNode.js Version:[0m v18.20.5
+[0;32mNPM Version:[0m 10.8.2
+[0;32mNVM Version:[0m NVM not found
+[0;32mTypeScript Version:[0m Version 5.6.3
+[0;32mVite Version:[0m vite/6.0.7 darwin-arm64 node-v18.20.5
+[0;32mDocker Version:[0m Docker version 27.4.0, build bde2b89
+[0;32mPostgreSQL Version:[0m
+
+[0;32mGit Version:[0m git version 2.47.1
+[0;36m-------------------------------------[0m
+[0;34mChecking Frontend Local NPM Packages:[0m
+frontend@1.0.0 /Users/ehsanrahimi/TaminBar/taminbarir/frontend
+├── @babel/core@7.26.0
+├── @babel/preset-env@7.26.0
+├── @babel/preset-react@7.26.3
+├── babel-loader@9.2.1
+├── bootstrap@5.3.3
+├── css-loader@7.1.2
+├── dotenv-webpack@8.1.0
+├── html-webpack-plugin@5.6.3
+├── react-dom@19.0.0
+├── react@19.0.0
+├── style-loader@4.0.0
+├── webpack-cli@6.0.1
+├── webpack-dev-server@5.2.0
+└── webpack@5.97.1
+
+[0;36m-------------------------------------[0m
+[0;34mChecking Backend Local NPM Packages:[0m
+backend@1.0.0 /Users/ehsanrahimi/TaminBar/taminbarir/backend
+├── cors@2.8.5
+├── dotenv@16.4.7
+├── express@4.21.2
+├── knex@3.1.0
+├── nodemon@3.1.9
+└── pg@8.13.1
+
+[0;36m-------------------------------------[0m
+[0;34mProject Directory Structure (Excluding node_modules):[0m
+.
+├── README.md
+├── backend
+│   ├── dbTest.js
+│   ├── knexfile.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── controllers
+│   │   │   └── productController.js
+│   │   ├── db
+│   │   │   ├── db.js
+│   │   │   ├── enums.js
+│   │   │   └── migrations
+│   │   │       ├── 20241228180000_create_enums.js
+│   │   │       ├── 20241228194405_create_users_table.js
+│   │   │       ├── 20241230040618_create_categories_table.js
+│   │   │       ├── 20241230040627_create_brands_table.js
+│   │   │       ├── 20241230040637_create_suppliers_table.js
+│   │   │       ├── 20241230040744_create_products_table.js
+│   │   │       ├── 20241230040756_create_orders_table.js
+│   │   │       └── 20241230040809_create_order_items_table.js
+│   │   ├── models
+│   │   │   └── productModel.js
+│   │   ├── routes
+│   │   │   ├── orders.js
+│   │   │   ├── products.js
+│   │   │   ├── suppliers.js
+│   │   │   └── users.js
+│   │   └── server.js
+│   └── test-db.js
+├── check_versions.log
+├── check_versions.sh
+└── frontend
+    ├── dist
+    │   ├── bundle.js
+    │   ├── bundle.js.LICENSE.txt
+    │   ├── favicon.ico
+    │   └── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── public
+    │   ├── favicon.ico
+    │   └── index.html
+    ├── src
+    │   ├── App.js
+    │   ├── components
+    │   │   └── Error.js
+    │   ├── index.js
+    │   └── pages
+    │       ├── Dashboard.js
+    │       ├── HomePage.js
+    │       └── ProductPage.js
+    └── webpack.config.js
+
+14 directories, 40 files
+[0;36m-------------------------------------[0m
+[0;34mDocker Containers Status:[0m
+NAMES         IMAGE             STATUS          PORTS
+TaminBar-DB   postgres:latest   Up 14 minutes   0.0.0.0:5432->5432/tcp
+SimorX_DB     postgres:latest   Up 2 hours      0.0.0.0:5434->5432/tcp
+adminer       adminer:latest    Up 13 minutes   0.0.0.0:5433->8080/tcp
+[0;36m-------------------------------------[0m
+[0;34mGit Repository Status:[0m
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   backend/package-lock.json
+	modified:   backend/package.json
+	modified:   frontend/package-lock.json
+	modified:   frontend/package.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	backend/dbTest.js
+	backend/knexfile.js
+	backend/src/db/enums.js
+	backend/src/db/migrations/
+	backend/src/routes/orders.js
+	backend/src/routes/suppliers.js
+	backend/src/routes/users.js
+	backend/test-db.js
+	check_versions.log
+	check_versions.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[0;36m-------------------------------------[0m
+[0;34mPorts in Use:[0m
+ControlCe   521 ehsanrahimi    8u  IPv4 0x45f961a27cbb0d3c      0t0    TCP *:7000 (LISTEN)
+ControlCe   521 ehsanrahimi    9u  IPv6 0xefd904af810dd367      0t0    TCP *:7000 (LISTEN)
+ControlCe   521 ehsanrahimi   10u  IPv4 0xd00121f4ea22bd6d      0t0    TCP *:5000 (LISTEN)
+ControlCe   521 ehsanrahimi   11u  IPv6 0xc2ddee6f2056085f      0t0    TCP *:5000 (LISTEN)
+rapportd    527 ehsanrahimi    8u  IPv4 0xf9b54f0d373607f2      0t0    TCP *:64753 (LISTEN)
+rapportd    527 ehsanrahimi    9u  IPv6 0xaa42bea70d1f7bdb      0t0    TCP *:64753 (LISTEN)
+mongod      635 ehsanrahimi    9u  IPv4 0xb5d1258a4be68387      0t0    TCP 127.0.0.1:27017 (LISTEN)
+mongod      635 ehsanrahimi   10u  IPv6 0xc0f7413047bdc21e      0t0    TCP [::1]:27017 (LISTEN)
+nxnode.bi   699 ehsanrahimi   15u  IPv6 0x2dc0663f2ff70c51      0t0    TCP [::1]:7002 (LISTEN)
+nxnode.bi   699 ehsanrahimi   17u  IPv4 0xaa38437392f780be      0t0    TCP 127.0.0.1:12002 (LISTEN)
+nxnode.bi   699 ehsanrahimi   18u  IPv4 0x7f35e5d24360bf92      0t0    TCP 127.0.0.1:7002 (LISTEN)
+nxrunner    740 ehsanrahimi    5u  IPv4 0x59dca0c97cdb7231      0t0    TCP 127.0.0.1:25002 (LISTEN)
+nxplayer  22203 ehsanrahimi    5u  IPv4 0xeada91e51cf5c7c2      0t0    TCP 127.0.0.1:41340 (LISTEN)
+nxplayer  22258 ehsanrahimi   12u  IPv4 0x59c6d181973b7103      0t0    TCP 127.0.0.1:13002 (LISTEN)
+node      49690 ehsanrahimi   23u  IPv6 0x7a0c30e1c24c695a      0t0    TCP *:3001 (LISTEN)
+com.docke 64803 ehsanrahimi   77u  IPv6 0x6b07bcdd5903672c      0t0    TCP *:5432 (LISTEN)
+com.docke 64803 ehsanrahimi  112u  IPv6 0x4ea3a6f714fbec12      0t0    TCP *:5434 (LISTEN)
+com.docke 64803 ehsanrahimi  156u  IPv6 0xa71fde0e8c3732f9      0t0    TCP *:5433 (LISTEN)
+[0;36m-------------------------------------[0m
